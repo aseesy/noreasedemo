@@ -61,9 +61,7 @@
     <!-- Preload critical assets -->
     <link rel="preload" href="noreas-logo.svg" as="image" type="image/svg+xml">
 
-    <!-- Preload responsive video sources for faster playback -->
-    <link rel="preload" href="outher-1080p.mp4" as="video" type="video/mp4" media="(min-width: 1024px)">
-    <link rel="preload" href="outher-720p.mp4" as="video" type="video/mp4" media="(max-width: 1023px)">
+    <!-- Video optimization: Using responsive MP4 sources for optimal performance -->
 
     <!-- Optimized font loading: reduced to essential weights with optional display + Latin subset -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=optional&subset=latin" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -112,6 +110,8 @@
                 <source src="outher-1080p.mp4" type="video/mp4" media="(min-width: 1024px)">
                 <!-- Mobile: Optimized 720p (2.0 Mbps, 4.1MB) -->
                 <source src="outher-720p.mp4" type="video/mp4">
+                <!-- Fallback: Original video file -->
+                <source src="outher.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
             <div class="animated-shapes">
