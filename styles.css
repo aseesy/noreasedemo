@@ -309,7 +309,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background: var(--gradient-primary);
-    z-index: -1;
+    z-index: 0;
 }
 
 .hero-video {
