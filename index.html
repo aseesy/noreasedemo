@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NOREAS Inc. - Professional, Reliable, In-Depth Engineering and Scientific Expertise. Environmental investigation, natural resources, consulting, and design-build construction services.">
+    <title>NOREAS Inc. | Engineering & Scientific Services Excellence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-text">NOREAS</span>
+                <span class="logo-subtitle">INC.</span>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#company" class="nav-link">Company</a></li>
+                <li class="dropdown">
+                    <a href="#services" class="nav-link">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#environmental">Environmental Investigation</a></li>
+                        <li><a href="#natural-resources">Natural Resources</a></li>
+                        <li><a href="#consulting">Consulting & Engineering</a></li>
+                        <li><a href="#design-build">Design-Build Construction</a></li>
+                    </ul>
+                </li>
+                <li><a href="#projects" class="nav-link">Featured Projects</a></li>
+                <li><a href="#clients" class="nav-link">Clients</a></li>
+                <li><a href="#contact" class="nav-link cta-nav">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="outher.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="animated-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-label" data-aos="fade-up">Since 2008</span>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    Professional, Reliable,
+                    <span class="highlight">In-Depth Engineering</span>
+                    and Scientific Expertise
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Delivering cost-effective environmental solutions across California, Nevada, and Arizona
+                </p>
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contact" class="btn btn-primary">Request Information</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat">
+                        <span class="stat-number">18+</span>
+                        <span class="stat-label">Years of Excellence</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Expert Professionals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-badges">
+                <div class="badge" data-aos="fade-up">
+                    <div class="badge-icon">✓</div>
+                    <div class="badge-content">
+                        <h4>SBE Certified</h4>
+                        <p>Small Business Enterprise</p>
+                    </div>
+                </div>
+                <div class="badge" data-aos="fade-up" data-aos-delay="100">
+                    <div class="badge-icon">⚡</div>
+                    <div class="badge-content">
+                        <h4>Licensed Contractor</h4>
+                        <p>$15M Bonding Capability</p>
+                    </div>
+                </div>
+                <div class="badge" data-aos="fade-up" data-aos-delay="200">
+                    <div class="badge-icon">★</div>
+                    <div class="badge-content">
+                        <h4>Federal & State</h4>
+                        <p>Recognized Small Business</p>
+                    </div>
+                </div>
+                <div class="badge" data-aos="fade-up" data-aos-delay="300">
+                    <div class="badge-icon">◆</div>
+                    <div class="badge-content">
+                        <h4>3-State Coverage</h4>
+                        <p>CA, NV, AZ Operations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Expertise</span>
+                <h2 class="section-title">Comprehensive Environmental Solutions</h2>
+                <p class="section-subtitle">Four core service areas delivering unmatched expertise and results</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Environmental Investigation -->
+                <div class="service-card" data-aos="fade-up" id="environmental">
+                    <div class="service-card-inner">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Environmental Investigation & Remediation</h3>
+                        <p class="service-description">
+                            Impressive track record for providing services at numerous military bases, industrial facilities,
+                            development areas, and hazardous waste sites with an unrivaled reputation among clients and regulators.
+                        </p>
+                        <ul class="service-features">
+                            <li>Preliminary assessments & site inspections</li>
+                            <li>Remedial investigations & feasibility studies</li>
+                            <li>Groundwater & soil-gas monitoring</li>
+                            <li>In-situ chemical oxidation & bioremediation</li>
+                            <li>Risk assessments & site closure</li>
+                        </ul>
+                        <a href="#environmental-details" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Natural Resources -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100" id="natural-resources">
+                    <div class="service-card-inner">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Natural Resources & Permitting</h3>
+                        <p class="service-description">
+                            Over 30 natural resource professionals delivering species surveys, inventories, relocation, monitoring,
+                            and permitting analysis for 500+ projects affecting wetlands and waterways.
+                        </p>
+                        <ul class="service-features">
+                            <li>Special-status species survey & monitoring</li>
+                            <li>Wetlands & Waters of the U.S. permitting</li>
+                            <li>Clean Water Act compliance (Sections 404/401)</li>
+                            <li>GIS analysis & map generation</li>
+                            <li>Federal & State ESA coordination</li>
+                        </ul>
+                        <a href="#natural-details" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Consulting & Engineering -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200" id="consulting">
+                    <div class="service-card-inner">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Consulting & Engineering Services</h3>
+                        <p class="service-description">
+                            Integrated approach combining effective client communication with multidisciplinary teams of geologists,
+                            hydrogeologists, chemists, engineers, and construction managers.
+                        </p>
+                        <ul class="service-features">
+                            <li>Soil Vapor Extraction (SVE) & Air Sparging</li>
+                            <li>Enhanced In Situ Bioremediation (EISB)</li>
+                            <li>In Situ Chemical Oxidation (ISCO)</li>
+                            <li>Pump & Treat systems optimization</li>
+                            <li>DNAPL investigation & remediation</li>
+                        </ul>
+                        <a href="#consulting-details" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Design-Build -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300" id="design-build">
+                    <div class="service-card-inner">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M9 3v18"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Design-Build Construction</h3>
+                        <p class="service-description">
+                            Licensed general engineering and construction contractor with $15 million bonding capability,
+                            providing full-service design and construction for remediation and clean projects.
+                        </p>
+                        <ul class="service-features">
+                            <li>Civil, mechanical, structural & electrical design</li>
+                            <li>Roads, utilities & infrastructure development</li>
+                            <li>Building construction & demolition</li>
+                            <li>Landfill caps & brownfields redevelopment</li>
+                            <li>Owner's representation & quality control</li>
+                        </ul>
+                        <a href="#design-details" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Section -->
+    <section class="company" id="company">
+        <div class="container">
+            <div class="company-content">
+                <div class="company-text" data-aos="fade-right">
+                    <span class="section-label">About NOREAS</span>
+                    <h2 class="section-title">Engineering Excellence Since 2008</h2>
+                    <p class="lead-text">
+                        NOREAS Inc. is an engineering and scientific services firm providing comprehensive solutions
+                        to federal agencies, local governments, utility companies, and private industries across
+                        California, Nevada, and Arizona.
+                    </p>
+                    <p>
+                        Our team of highly skilled engineers, geologists, environmental scientists, biologists, and
+                        construction professionals delivers cost-effective environmental solutions with a proven track record
+                        of excellence. We maintain an unrivaled reputation among clients and regulators for addressing
+                        complex environmental challenges.
+                    </p>
+                    <div class="company-certifications">
+                        <h4>Industry Certifications</h4>
+                        <ul class="cert-list">
+                            <li>California Department of General Services (SBE)</li>
+                            <li>LA Unified School District</li>
+                            <li>LA Department of Water and Power</li>
+                            <li>LA County METRO</li>
+                            <li>Port of Long Beach</li>
+                            <li>San Diego Port Authority</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="company-visual" data-aos="fade-left">
+                    <div class="visual-card">
+                        <div class="visual-stat">
+                            <span class="visual-number">2008</span>
+                            <span class="visual-label">Established</span>
+                        </div>
+                    </div>
+                    <div class="visual-card">
+                        <div class="visual-stat">
+                            <span class="visual-number">$15M</span>
+                            <span class="visual-label">Bonding Capability</span>
+                        </div>
+                    </div>
+                    <div class="visual-card">
+                        <div class="visual-stat">
+                            <span class="visual-number">3</span>
+                            <span class="visual-label">States Served</span>
+                        </div>
+                    </div>
+                    <div class="visual-card">
+                        <div class="visual-stat">
+                            <span class="visual-number">4</span>
+                            <span class="visual-label">Core Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Proven excellence across diverse environmental and construction challenges</p>
+            </div>
+
+            <div class="projects-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="environmental">Environmental</button>
+                <button class="filter-btn" data-filter="natural">Natural Resources</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="construction">Construction</button>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card" data-category="environmental" data-aos="fade-up">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-tag">Environmental</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Groundwater Remedial System Optimization</h3>
+                        <p>Advanced optimization of groundwater treatment systems for improved efficiency and cost savings.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="natural" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-tag">Natural Resources</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tehachapi Renewable Transmission Project</h3>
+                        <p>Comprehensive habitat restoration and revegetation program for major transmission infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="environmental" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-tag">Environmental</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>In Situ Chemical Oxidation Projects</h3>
+                        <p>VOC and dichlorobenzene plume remediation using advanced ISCO technologies.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="construction" data-aos="fade-up">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-tag">Construction</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Landfill Cap Design & Construction</h3>
+                        <p>Complete design, permitting, and construction of environmental containment systems.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="natural" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-tag">Natural Resources</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Naval Weapons Station Rare Plant Assessment</h3>
+                        <p>Federally-listed species assessment and habitat evaluation for military installations.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="engineering" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-tag">Engineering</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Solar Lighting System Installation</h3>
+                        <p>Advanced pedestrian and parking lot solar lighting for improved energy efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Trusted Partners</span>
+                <h2 class="section-title">Our Clients</h2>
+                <p class="section-subtitle">Serving federal agencies, state/local governments, utilities, and leading corporations</p>
+            </div>
+
+            <div class="clients-categories">
+                <div class="client-category" data-aos="fade-up">
+                    <h3 class="category-title">Federal Government</h3>
+                    <div class="client-list">
+                        <span class="client-name">U.S. Navy</span>
+                        <span class="client-name">U.S. Marine Corps</span>
+                        <span class="client-name">U.S. Army Corps of Engineers</span>
+                        <span class="client-name">Naval Facilities Engineering Command</span>
+                        <span class="client-name">Edwards Air Force Base</span>
+                        <span class="client-name">Marine Corps Base Camp Pendleton</span>
+                        <span class="client-name">Naval Air Weapons Station China Lake</span>
+                        <span class="client-name">Fort Irwin National Training Center</span>
+                    </div>
+                </div>
+
+                <div class="client-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">State & Local Government</h3>
+                    <div class="client-list">
+                        <span class="client-name">California Department of Transportation</span>
+                        <span class="client-name">California High Speed Rail Authority</span>
+                        <span class="client-name">California State University Fullerton</span>
+                        <span class="client-name">County of Orange Department of Public Works</span>
+                        <span class="client-name">County of San Bernardino Department of Public Works</span>
+                        <span class="client-name">City of Lancaster</span>
+                    </div>
+                </div>
+
+                <div class="client-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="category-title">Utilities & Energy</h3>
+                    <div class="client-list">
+                        <span class="client-name">Southern California Edison</span>
+                        <span class="client-name">Southern California Gas Company</span>
+                        <span class="client-name">Sempra Energy</span>
+                        <span class="client-name">Sustainable Power Group</span>
+                        <span class="client-name">Tyr Energy</span>
+                    </div>
+                </div>
+
+                <div class="client-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="category-title">Engineering & Environmental Firms</h3>
+                    <div class="client-list">
+                        <span class="client-name">AECOM</span>
+                        <span class="client-name">Tetra Tech EC</span>
+                        <span class="client-name">CDM Smith</span>
+                        <span class="client-name">CB&I</span>
+                        <span class="client-name">ICF International</span>
+                        <span class="client-name">URS</span>
+                        <span class="client-name">Parsons Brinckerhoff</span>
+                        <span class="client-name">Power Engineers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right">
+                    <span class="section-label">Get In Touch</span>
+                    <h2 class="section-title">Contact Our Team</h2>
+                    <p class="lead-text">
+                        Ready to discuss your project? Our team of experts is here to provide solutions
+                        tailored to your environmental and engineering needs.
+                    </p>
+
+                    <div class="contact-offices">
+                        <div class="office-card">
+                            <h4>Orange County Office</h4>
+                            <p class="office-label">Headquarters</p>
+                            <div class="office-details">
+                                <p>16361 Scientific Way<br>Irvine, CA 92618</p>
+                                <p><strong>Phone:</strong> (949) 467-9100</p>
+                                <p><strong>Fax:</strong> (949) 398-8758</p>
+                            </div>
+                        </div>
+
+                        <div class="office-card">
+                            <h4>San Diego Office</h4>
+                            <p class="office-label">Regional Office</p>
+                            <div class="office-details">
+                                <p>2534 State Street<br>San Diego, CA 92101</p>
+                                <p><strong>Phone:</strong> (619) 516-8181</p>
+                                <p><strong>Fax:</strong> (619) 557-8341</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-email">
+                        <p><strong>Email:</strong> <a href="mailto:RFI@noreasinc.com">RFI@noreasinc.com</a></p>
+                    </div>
+
+                    <div class="service-region">
+                        <p><strong>Service Region:</strong> California, Nevada, and Arizona</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <span class="logo-text">NOREAS</span>
+                        <span class="logo-subtitle">INC.</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional, reliable, in-depth engineering and scientific expertise
+                        serving California, Nevada, and Arizona since 2008.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#environmental">Environmental Investigation</a></li>
+                        <li><a href="#natural-resources">Natural Resources</a></li>
+                        <li><a href="#consulting">Consulting & Engineering</a></li>
+                        <li><a href="#design-build">Design-Build Construction</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#company">About Us</a></li>
+                        <li><a href="#projects">Featured Projects</a></li>
+                        <li><a href="#clients">Our Clients</a></li>
+                        <li><a href="https://www.linkedin.com/company/noreas-inc" target="_blank">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Irvine: (949) 467-9100</li>
+                        <li>San Diego: (619) 516-8181</li>
+                        <li><a href="mailto:RFI@noreasinc.com">RFI@noreasinc.com</a></li>
+                        <li><a href="#contact">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 NOREAS Inc. | All Rights Reserved</p>
+                <p class="footer-credit">Web Development by Dynamic Concepts</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
