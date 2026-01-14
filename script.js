@@ -258,26 +258,46 @@ style.textContent = `
 document.head.appendChild(style);
 
 // ===========================
-// Intersection Observer for Animations
+// Intersection Observer for Animations (Optimized)
 // ===========================
 
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('aos-animate');
+let animationObserver;
+
+function initAnimationObserver() {
+    animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+                // Unobserve after animation to save resources
+                animationObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Only observe elements within 2 viewports
+    const elements = Array.from(document.querySelectorAll('[data-aos]'));
+    const viewportHeight = window.innerHeight;
+
+    elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // Observe if within 2 viewports or already visible
+        if (rect.top < viewportHeight * 2 || rect.top < 0) {
+            animationObserver.observe(el);
         }
     });
-}, observerOptions);
+}
 
-// Observe all elements with data-aos attribute
-document.querySelectorAll('[data-aos]').forEach(el => {
-    observer.observe(el);
-});
+// Initialize on idle for better performance
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(initAnimationObserver, { timeout: 2000 });
+} else {
+    setTimeout(initAnimationObserver, 100);
+}
 
 // ===========================
 // Counter Animation for Stats
@@ -382,50 +402,85 @@ if ('IntersectionObserver' in window) {
 }
 
 // ===========================
-// Parallax Effect for Hero
+// Parallax Effect for Hero (RAF Optimized)
 // ===========================
 
 const heroContent = document.querySelector('.hero-content');
 const animatedShapes = document.querySelector('.animated-shapes');
+const heroSection = document.querySelector('.hero');
 
-window.addEventListener('scroll', debounce(() => {
-    const scrolled = window.pageYOffset;
-    const heroHeight = document.querySelector('.hero').offsetHeight;
+let ticking = false;
+let scrollPos = 0;
+let heroHeight = 0;
 
-    if (scrolled < heroHeight) {
+// Cache hero height
+if (heroSection) {
+    heroHeight = heroSection.offsetHeight;
+    window.addEventListener('resize', debounce(() => {
+        heroHeight = heroSection.offsetHeight;
+    }, 200));
+}
+
+window.addEventListener('scroll', () => {
+    scrollPos = window.pageYOffset;
+
+    if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+    }
+}, { passive: true });
+
+function updateParallax() {
+    if (scrollPos < heroHeight) {
         if (heroContent) {
-            heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-            heroContent.style.opacity = 1 - (scrolled / heroHeight);
+            heroContent.style.transform = `translate3d(0, ${scrollPos * 0.5}px, 0)`;
+            heroContent.style.opacity = 1 - (scrollPos / heroHeight);
         }
 
         if (animatedShapes) {
-            animatedShapes.style.transform = `translateY(${scrolled * 0.3}px)`;
+            animatedShapes.style.transform = `translate3d(0, ${scrollPos * 0.3}px, 0)`;
         }
     }
-}, 5));
+
+    ticking = false;
+}
 
 // ===========================
-// Enhanced Hover Effects
+// Enhanced Hover Effects (Optimized)
 // ===========================
 
-// Service cards 3D tilt effect
+// Cache card rects for performance
+const cardRects = new WeakMap();
+
+function cacheCardRects() {
+    document.querySelectorAll('.service-card').forEach(card => {
+        cardRects.set(card, {
+            width: card.offsetWidth,
+            height: card.offsetHeight
+        });
+    });
+}
+
+// Cache on load and resize
+cacheCardRects();
+window.addEventListener('resize', debounce(cacheCardRects, 200));
+
+// Service cards 3D tilt effect with cached rects
 document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
+        const cached = cardRects.get(card);
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        const rotateX = (y - cached.height / 2) / 20;
+        const rotateY = (cached.width / 2 - x) / 20;
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+        card.style.transform = `translate3d(0, -10px, 0) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
     card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        card.style.transform = 'translate3d(0, 0, 0) perspective(1000px) rotateX(0) rotateY(0)';
     });
 });
 

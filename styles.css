@@ -141,8 +141,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     cursor: pointer;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    transition: var(--transition-smooth);
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
 }
 
 .logo-text {
@@ -310,6 +320,14 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    aspect-ratio: 16 / 9;
+}
+
+/* Fallback for older browsers */
+@supports not (aspect-ratio: 16 / 9) {
+    .hero-video {
+        min-height: 100vh;
+    }
 }
 
 .hero-overlay {
@@ -540,6 +558,52 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===========================
+   Performance Optimizations
+   =========================== */
+
+/* CSS Containment for layout performance */
+.services,
+.company,
+.projects,
+.clients,
+.contact,
+.trust-section {
+    contain: layout style;
+    isolation: isolate;
+}
+
+.service-card,
+.project-card,
+.client-category,
+.badge,
+.visual-card,
+.office-card {
+    contain: layout paint;
+}
+
+.navbar {
+    contain: layout style;
+}
+
+.footer {
+    contain: layout style;
+}
+
+/* Will-change for animated elements */
+.hero-content,
+.animated-shapes {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Tabular numbers for counters to prevent layout shift */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+    min-width: 4ch;
+}
+
+/* ===========================
    Trust Section
    =========================== */
 
@@ -551,8 +615,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .trust-badges {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 30px;
+    contain: layout;
+}
+
+@media (min-width: 640px) {
+    .trust-badges {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .trust-badges {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .badge {
@@ -611,8 +688,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 40px;
+    contain: layout;
+}
+
+/* Explicit breakpoints prevent layout recalculation */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .service-card {
@@ -621,6 +712,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     transition: var(--transition-smooth);
     box-shadow: var(--shadow-sm);
+    min-height: 500px;
 }
 
 .service-card:hover {
@@ -849,8 +941,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: 1fr;
     gap: 40px;
+    contain: layout;
+}
+
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .project-card {
@@ -920,8 +1025,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .clients-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 40px;
+    contain: layout;
+}
+
+@media (min-width: 768px) {
+    .clients-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .clients-categories {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .client-category {
@@ -1133,6 +1251,18 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+}
+
+.footer-logo-image {
+    height: 60px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: var(--transition-smooth);
+}
+
+.footer-logo-image:hover {
+    transform: scale(1.05);
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(142, 198, 63, 0.5));
 }
 
 .footer-description {

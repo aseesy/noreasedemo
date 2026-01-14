@@ -5,18 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="NOREAS Inc. - Professional, Reliable, In-Depth Engineering and Scientific Expertise. Environmental investigation, natural resources, consulting, and design-build construction services.">
     <title>NOREAS Inc. | Engineering & Scientific Services Excellence</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Critical CSS inline for immediate render -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-green: #8ec63f;
+            --primary-blue: #0760ad;
+            --white: #ffffff;
+            --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            font-family: var(--font-primary);
+            overflow-x: hidden;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0760ad 0%, #326b93 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+    </style>
+
+    <!-- Resource hints for performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="noreas-logo.svg" as="image" type="image/svg+xml">
+
+    <!-- Preload responsive video sources for faster playback -->
+    <link rel="preload" href="outher-1080p.mp4" as="video" type="video/mp4" media="(min-width: 1024px)">
+    <link rel="preload" href="outher-720p.mp4" as="video" type="video/mp4" media="(max-width: 1023px)">
+
+    <!-- Optimized font loading: reduced to essential weights with optional display + Latin subset -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=optional&subset=latin" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=optional&subset=latin"></noscript>
+
+    <!-- Async load full stylesheet -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <span class="logo-text">NOREAS</span>
-                <span class="logo-subtitle">INC.</span>
+                <img src="noreas-logo.svg" alt="NOREAS Inc." class="logo-image" width="180" height="50" fetchpriority="high">
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -45,8 +107,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-background">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="outher.mp4" type="video/mp4">
+            <video class="hero-video" autoplay muted loop playsinline width="1920" height="1080" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%230760ad' width='1920' height='1080'/%3E%3C/svg%3E">
+                <!-- Desktop: High quality 1080p (3.1 Mbps, 6.3MB) -->
+                <source src="outher-1080p.mp4" type="video/mp4" media="(min-width: 1024px)">
+                <!-- Mobile: Optimized 720p (2.0 Mbps, 4.1MB) -->
+                <source src="outher-720p.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
             <div class="animated-shapes">
@@ -555,8 +620,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <span class="logo-text">NOREAS</span>
-                        <span class="logo-subtitle">INC.</span>
+                        <img src="noreas-logo.svg" alt="NOREAS Inc." class="footer-logo-image" width="216" height="60" loading="lazy">
                     </div>
                     <p class="footer-description">
                         Professional, reliable, in-depth engineering and scientific expertise
