@@ -279,16 +279,11 @@ function initAnimationObserver() {
         });
     }, observerOptions);
 
-    // Only observe elements within 2 viewports
+    // Observe ALL elements with data-aos attribute
     const elements = Array.from(document.querySelectorAll('[data-aos]'));
-    const viewportHeight = window.innerHeight;
-
+    
     elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        // Observe if within 2 viewports or already visible
-        if (rect.top < viewportHeight * 2 || rect.top < 0) {
-            animationObserver.observe(el);
-        }
+        animationObserver.observe(el);
     });
 }
 
