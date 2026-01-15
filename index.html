@@ -27,6 +27,7 @@
             left: 0;
             right: 0;
             width: 100%;
+            height: 80px;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
@@ -40,6 +41,7 @@
             background: linear-gradient(135deg, #0760ad 0%, #326b93 100%);
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
         .hero-video {
             position: absolute;
@@ -49,6 +51,32 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 20px;
+            color: #ffffff;
+        }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        /* Prevent AOS flash - elements start invisible */
+        [data-aos] {
+            opacity: 0;
+        }
+        /* Reserve space for key sections to prevent layout shift */
+        .trust-section,
+        .services,
+        .company,
+        .projects,
+        .clients,
+        .contact {
+            min-height: 400px;
         }
     </style>
 
@@ -67,9 +95,8 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=optional&subset=latin" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=optional&subset=latin"></noscript>
 
-    <!-- Async load full stylesheet -->
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <!-- Load full stylesheet synchronously to prevent layout shifts -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
