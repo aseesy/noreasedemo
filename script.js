@@ -512,6 +512,65 @@ console.log('%cInterested in joining our team? Visit our LinkedIn: https://www.l
 console.log('%cWebsite developed with modern web technologies for optimal performance and user experience.', 'color: #326b93; font-size: 11px;');
 
 // ===========================
+// Video Autoplay Handling
+// ===========================
+
+// Ensure video plays - some browsers block autoplay even with muted attribute
+const heroVideo = document.querySelector('.hero-video');
+
+if (heroVideo) {
+    // Force play attempt
+    const playVideo = () => {
+        const playPromise = heroVideo.play();
+        
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    // Video started playing
+                    console.log('Video is playing');
+                })
+                .catch((error) => {
+                    // Autoplay was prevented or failed
+                    console.warn('Video autoplay prevented:', error);
+                    // Try again after user interaction
+                    document.addEventListener('click', () => {
+                        heroVideo.play().catch(err => console.warn('Video play failed:', err));
+                    }, { once: true });
+                });
+        }
+    };
+
+    // Try to play immediately
+    playVideo();
+
+    // Also try when video is ready
+    heroVideo.addEventListener('loadedmetadata', playVideo);
+    heroVideo.addEventListener('canplay', playVideo);
+    
+    // Handle video errors
+    heroVideo.addEventListener('error', (e) => {
+        console.error('Video loading error:', e);
+        const error = heroVideo.error;
+        if (error) {
+            switch (error.code) {
+                case error.MEDIA_ERR_ABORTED:
+                    console.error('Video loading aborted');
+                    break;
+                case error.MEDIA_ERR_NETWORK:
+                    console.error('Network error while loading video');
+                    break;
+                case error.MEDIA_ERR_DECODE:
+                    console.error('Error decoding video');
+                    break;
+                case error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+                    console.error('Video format not supported or source not found');
+                    break;
+            }
+        }
+    });
+}
+
+// ===========================
 // Initialize All Features
 // ===========================
 
