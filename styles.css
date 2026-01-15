@@ -309,7 +309,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background: var(--gradient-primary);
-    z-index: 0;
+    z-index: -1;
 }
 
 .hero-video {
@@ -336,8 +336,8 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+    background: linear-gradient(135deg, rgba(7, 96, 173, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 0;
 }
 
 .animated-shapes {
@@ -345,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 2;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -590,12 +590,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Will-change for animated elements */
-.hero-content,
-.animated-shapes {
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-    perspective: 1000px;
-}
+/* Removed parallax performance optimizations to prevent layout shifts */
 
 /* Tabular numbers for counters to prevent layout shift */
 .stat-number {

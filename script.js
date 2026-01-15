@@ -402,48 +402,8 @@ if ('IntersectionObserver' in window) {
 }
 
 // ===========================
-// Parallax Effect for Hero (RAF Optimized)
+// Parallax Effect REMOVED - was causing layout shifts and CLS issues
 // ===========================
-
-const heroContent = document.querySelector('.hero-content');
-const animatedShapes = document.querySelector('.animated-shapes');
-const heroSection = document.querySelector('.hero');
-
-let ticking = false;
-let scrollPos = 0;
-let heroHeight = 0;
-
-// Cache hero height
-if (heroSection) {
-    heroHeight = heroSection.offsetHeight;
-    window.addEventListener('resize', debounce(() => {
-        heroHeight = heroSection.offsetHeight;
-    }, 200));
-}
-
-window.addEventListener('scroll', () => {
-    scrollPos = window.pageYOffset;
-
-    if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-    }
-}, { passive: true });
-
-function updateParallax() {
-    if (scrollPos < heroHeight) {
-        if (heroContent) {
-            heroContent.style.transform = `translate3d(0, ${scrollPos * 0.5}px, 0)`;
-            heroContent.style.opacity = 1 - (scrollPos / heroHeight);
-        }
-
-        if (animatedShapes) {
-            animatedShapes.style.transform = `translate3d(0, ${scrollPos * 0.3}px, 0)`;
-        }
-    }
-
-    ticking = false;
-}
 
 // ===========================
 // Enhanced Hover Effects (Optimized)
