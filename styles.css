@@ -65,6 +65,8 @@ body {
     max-width: 1320px;
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* ===========================
@@ -350,6 +352,8 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     z-index: 3;
     pointer-events: none;
+    left: 0;
+    top: 0;
 }
 
 .shape {
@@ -364,18 +368,22 @@ h1, h2, h3, h4, h5, h6 {
     width: 500px;
     height: 500px;
     background: rgba(142, 198, 63, 0.4);
-    top: -10%;
-    left: -10%;
+    top: -5%;
+    left: -5%;
     animation-delay: 0s;
+    max-width: 40vw;
+    max-height: 40vw;
 }
 
 .shape-2 {
     width: 400px;
     height: 400px;
     background: rgba(7, 96, 173, 0.3);
-    bottom: -10%;
-    right: -5%;
+    bottom: -5%;
+    right: 0;
     animation-delay: 5s;
+    max-width: 35vw;
+    max-height: 35vw;
 }
 
 .shape-3 {
@@ -385,6 +393,8 @@ h1, h2, h3, h4, h5, h6 {
     top: 50%;
     left: 50%;
     animation-delay: 10s;
+    max-width: 30vw;
+    max-height: 30vw;
 }
 
 @keyframes float {
@@ -818,10 +828,14 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .company-text {
     max-width: 600px;
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 .company-text p {
@@ -1104,6 +1118,8 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .contact-offices {
@@ -1398,8 +1414,19 @@ h1, h2, h3, h4, h5, h6 {
         --section-padding: 80px;
     }
 
+    .container {
+        padding: 0 32px;
+        overflow-x: hidden;
+    }
+
     .hero-title {
         font-size: 3rem;
+        padding: 0 16px;
+    }
+
+    .hero-content {
+        padding: 60px 16px;
+        max-width: 100%;
     }
 
     .section-title {
@@ -1412,9 +1439,23 @@ h1, h2, h3, h4, h5, h6 {
         gap: 60px;
     }
 
+    .company-text,
+    .contact-info {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
     .footer-content {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
+    }
+
+    /* Reduce shape sizes on tablets */
+    .shape-1,
+    .shape-2,
+    .shape-3 {
+        max-width: 250px;
+        max-height: 250px;
     }
 }
 
@@ -1515,20 +1556,41 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
     .container {
         padding: 0 16px;
+        overflow-x: hidden;
+    }
+
+    .hero-content {
+        padding: 40px 8px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-title {
         font-size: 1.75rem;
+        padding: 0 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .hero-subtitle {
+        padding: 0 8px;
     }
 
     .hero-cta {
         flex-direction: column;
         width: 100%;
+        padding: 0 8px;
     }
 
     .btn {
         width: 100%;
         text-align: center;
+    }
+
+    /* Hide decorative shapes on mobile to prevent overflow */
+    .animated-shapes {
+        display: none;
     }
 
     .trust-badges {
