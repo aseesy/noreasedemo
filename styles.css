@@ -1409,8 +1409,8 @@ h1, h2, h3, h4, h5, h6 {
    Responsive Design
    =========================== */
 
-/* Desktop dropdown hover - ensure it works above 1024px */
-@media (min-width: 1025px) {
+/* Desktop dropdown hover - ensure it works above 900px */
+@media (min-width: 901px) {
     .dropdown {
         position: relative;
     }
@@ -1425,9 +1425,17 @@ h1, h2, h3, h4, h5, h6 {
     .dropdown-menu {
         pointer-events: none;
     }
+
+    /* Ensure dropdown is compact on desktop */
+    .dropdown-menu {
+        position: absolute;
+        min-width: 280px;
+        max-width: 320px;
+    }
 }
 
-@media (max-width: 1024px) {
+/* Tablet and below - hamburger menu */
+@media (max-width: 900px) {
     :root {
         --section-padding: 80px;
     }
