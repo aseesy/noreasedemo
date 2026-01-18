@@ -298,48 +298,108 @@ if ('requestIdleCallback' in window) {
 // Counter Animation for Stats
 // ===========================
 
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, suffix = '+', duration = 2000) {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
+    const originalText = element.textContent;
+
+    // Handle special formats (K, M, etc)
+    const hasK = originalText.includes('K');
+    const hasM = originalText.includes('M');
 
     const updateCounter = () => {
         current += increment;
         if (current < target) {
-            element.textContent = Math.floor(current) + '+';
+            let displayValue = Math.floor(current);
+            if (hasK) {
+                displayValue = (displayValue / 1000).toFixed(0) + 'K';
+            } else if (hasM) {
+                displayValue = (displayValue / 1000000).toFixed(1) + 'M';
+            }
+            element.textContent = displayValue + suffix;
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target + '+';
+            let finalValue = target;
+            if (hasK) {
+                finalValue = (target / 1000).toFixed(0) + 'K';
+            } else if (hasM) {
+                finalValue = (target / 1000000).toFixed(1) + 'M';
+            }
+            element.textContent = finalValue + suffix;
         }
     };
 
     updateCounter();
 }
 
+function parseStatNumber(text) {
+    // Remove common suffixes and parse
+    const cleanText = text.replace(/[+\s,]/g, '');
+    if (cleanText.includes('K')) {
+        return parseFloat(cleanText.replace('K', '')) * 1000;
+    } else if (cleanText.includes('M')) {
+        return parseFloat(cleanText.replace('M', '')) * 1000000;
+    } else {
+        return parseInt(cleanText);
+    }
+}
+
 // Trigger counter animation when stats come into view
-const statNumbers = document.querySelectorAll('.stat-number');
-let statsAnimated = false;
+const heroStatsAnimated = { value: false };
+const trackStatsAnimated = { value: false };
 
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting && !statsAnimated) {
-            statsAnimated = true;
-            statNumbers.forEach(stat => {
-                const text = stat.textContent;
-                const number = parseInt(text.replace('+', ''));
-                stat.textContent = '0+';
+        if (entry.isIntersecting) {
+            const isHeroStats = entry.target.classList.contains('hero-stats');
+            const isTrackStats = entry.target.classList.contains('track-stats');
 
-                setTimeout(() => {
-                    animateCounter(stat, number);
-                }, 200);
-            });
+            if (isHeroStats && !heroStatsAnimated.value) {
+                heroStatsAnimated.value = true;
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+
+                statNumbers.forEach((stat, index) => {
+                    const text = stat.textContent;
+                    const number = parseStatNumber(text);
+                    const hasSuffix = text.includes('+');
+
+                    stat.textContent = '0' + (hasSuffix ? '+' : '');
+
+                    setTimeout(() => {
+                        animateCounter(stat, number, hasSuffix ? '+' : '', 2000);
+                    }, index * 100);
+                });
+            }
+
+            if (isTrackStats && !trackStatsAnimated.value) {
+                trackStatsAnimated.value = true;
+                const trackNumbers = entry.target.querySelectorAll('.track-stat-number');
+
+                trackNumbers.forEach((stat, index) => {
+                    const text = stat.textContent;
+                    const number = parseStatNumber(text);
+                    const hasSuffix = text.includes('+');
+
+                    stat.textContent = '0' + (hasSuffix ? '+' : '');
+
+                    setTimeout(() => {
+                        animateCounter(stat, number, hasSuffix ? '+' : '', 2500);
+                    }, index * 150);
+                });
+            }
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.3 });
 
 const heroStats = document.querySelector('.hero-stats');
 if (heroStats) {
     statsObserver.observe(heroStats);
+}
+
+const trackStats = document.querySelector('.track-stats');
+if (trackStats) {
+    statsObserver.observe(trackStats);
 }
 
 // ===========================
@@ -420,24 +480,8 @@ function cacheCardRects() {
 cacheCardRects();
 window.addEventListener('resize', debounce(cacheCardRects, 200));
 
-// Service cards 3D tilt effect with cached rects
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const cached = cardRects.get(card);
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateX = (y - cached.height / 2) / 20;
-        const rotateY = (cached.width / 2 - x) / 20;
-
-        card.style.transform = `translate3d(0, -10px, 0) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translate3d(0, 0, 0) perspective(1000px) rotateX(0) rotateY(0)';
-    });
-});
+// Service cards - removed aggressive 3D tilt effect
+// Cards now only lift up on hover via CSS
 
 // ===========================
 // Dynamic Year in Footer
@@ -562,6 +606,28 @@ if (heroVideo) {
                     break;
             }
         }
+    });
+}
+
+// ===========================
+// Interactive Gradient for Featured Service
+// ===========================
+
+const serviceFeatured = document.querySelector('.service-featured');
+
+if (serviceFeatured) {
+    serviceFeatured.addEventListener('mousemove', (e) => {
+        const rect = serviceFeatured.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        serviceFeatured.style.setProperty('--mouse-x', `${x}%`);
+        serviceFeatured.style.setProperty('--mouse-y', `${y}%`);
+    });
+
+    serviceFeatured.addEventListener('mouseleave', () => {
+        serviceFeatured.style.setProperty('--mouse-x', '50%');
+        serviceFeatured.style.setProperty('--mouse-y', '50%');
     });
 }
 
