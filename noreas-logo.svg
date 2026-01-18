@@ -2,8 +2,31 @@
   <!-- Blue "N" -->
   <text x="0" y="60" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0760ad">N</text>
 
-  <!-- Green "O" (ellipse) -->
-  <ellipse cx="70" cy="40" rx="22" ry="30" fill="none" stroke="#8ec63f" stroke-width="8" transform="rotate(15 70 40)"/>
+  <!-- Redesigned "O" - Environmental leaf circle concept -->
+  <defs>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a0d468;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6fb33f;stop-opacity:1" />
+    </linearGradient>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="1" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer circle with gradient -->
+  <circle cx="70" cy="40" r="24" fill="none" stroke="url(#greenGradient)" stroke-width="6" filter="url(#softShadow)"/>
+
+  <!-- Inner leaf accent - creates depth -->
+  <path d="M 70 20 Q 80 30 70 40 Q 60 30 70 20 Z" fill="#8ec63f" opacity="0.6"/>
+  <path d="M 70 40 Q 80 50 70 60 Q 60 50 70 40 Z" fill="#6fb33f" opacity="0.4"/>
 
   <!-- Blue "REAS" -->
   <text x="95" y="60" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0760ad">REAS</text>
