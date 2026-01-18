@@ -87,7 +87,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Preload critical assets -->
-    <link rel="preload" href="noreas-logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="noreas-logo.svg?v=2" as="image" type="image/svg+xml">
 
     <!-- Video optimization: Using responsive MP4 sources for optimal performance -->
 
@@ -103,7 +103,7 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <img src="noreas-logo.svg" alt="NOREAS Inc." class="logo-image" width="180" height="50" fetchpriority="high">
+                <img src="noreas-logo.svg?v=2" alt="NOREAS Inc." class="logo-image" width="180" height="50" fetchpriority="high">
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -132,11 +132,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-background">
-            <video class="hero-video" autoplay muted loop playsinline width="1920" height="1080" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%230760ad' width='1920' height='1080'/%3E%3C/svg%3E">
-                <!-- Coast video: Desktop optimized 1080p (13MB, 35 seconds) -->
-                <source src="outher-1080p.mp4?v=3" type="video/mp4" media="(min-width: 1024px)">
-                <!-- Coast video: Mobile optimized 720p (8.4MB, 35 seconds) -->
-                <source src="outher-720p.mp4?v=3" type="video/mp4">
+            <video class="hero-video" autoplay muted loop playsinline width="1920" height="1080" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%230760ad' width='1920' height='1080'/%3E%3C/svg%3E" key="coast-video">
+                <!-- Coast video ONLY: Desktop optimized 1080p (13MB, 35 seconds) -->
+                <source src="outher-1080p.mp4?v=4" type="video/mp4" media="(min-width: 1024px)">
+                <!-- Coast video ONLY: Mobile optimized 720p (8.4MB, 35 seconds) -->
+                <source src="outher-720p.mp4?v=4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
             <div class="animated-shapes">
@@ -645,7 +645,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <img src="noreas-logo.svg" alt="NOREAS Inc." class="footer-logo-image" width="216" height="60" loading="lazy">
+                        <img src="noreas-logo.svg?v=2" alt="NOREAS Inc." class="footer-logo-image" width="216" height="60" loading="lazy">
                     </div>
                     <p class="footer-description">
                         Professional, reliable, in-depth engineering and scientific expertise
