@@ -15,19 +15,31 @@
   <!-- Blue "N" -->
   <text x="0" y="60" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0760ad">N</text>
 
-  <!-- Green "O" with varying stroke widths - divided into 4 segments -->
+  <!-- Green "O" with smoothly varying stroke widths - 8 segments for smooth transitions -->
   <g transform="rotate(15 70 40)">
-    <!-- Top segment - medium -->
-    <path d="M 48,40 A 22,30 0 0,1 70,10" fill="none" stroke="#8ec63f" stroke-width="7" stroke-linecap="round"/>
+    <!-- Segment 1: Starting thin -->
+    <path d="M 48,40 A 22,30 0 0,1 59,15.4" fill="none" stroke="#8ec63f" stroke-width="5" stroke-linecap="round"/>
 
-    <!-- Right segment - thick -->
-    <path d="M 70,10 A 22,30 0 0,1 92,40" fill="none" stroke="#8ec63f" stroke-width="11" stroke-linecap="round"/>
+    <!-- Segment 2: Getting thicker -->
+    <path d="M 59,15.4 A 22,30 0 0,1 70,10" fill="none" stroke="#8ec63f" stroke-width="7" stroke-linecap="round"/>
 
-    <!-- Bottom segment - medium -->
-    <path d="M 92,40 A 22,30 0 0,1 70,70" fill="none" stroke="#8ec63f" stroke-width="7" stroke-linecap="round"/>
+    <!-- Segment 3: Thickening more -->
+    <path d="M 70,10 A 22,30 0 0,1 81,15.4" fill="none" stroke="#8ec63f" stroke-width="9" stroke-linecap="round"/>
 
-    <!-- Left segment - thin -->
-    <path d="M 70,70 A 22,30 0 0,1 48,40" fill="none" stroke="#8ec63f" stroke-width="4" stroke-linecap="round"/>
+    <!-- Segment 4: Thickest -->
+    <path d="M 81,15.4 A 22,30 0 0,1 92,40" fill="none" stroke="#8ec63f" stroke-width="11" stroke-linecap="round"/>
+
+    <!-- Segment 5: Starting to thin -->
+    <path d="M 92,40 A 22,30 0 0,1 81,64.6" fill="none" stroke="#8ec63f" stroke-width="9" stroke-linecap="round"/>
+
+    <!-- Segment 6: Thinner -->
+    <path d="M 81,64.6 A 22,30 0 0,1 70,70" fill="none" stroke="#8ec63f" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Segment 7: Getting thin -->
+    <path d="M 70,70 A 22,30 0 0,1 59,64.6" fill="none" stroke="#8ec63f" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Segment 8: Thinnest -->
+    <path d="M 59,64.6 A 22,30 0 0,1 48,40" fill="none" stroke="#8ec63f" stroke-width="4" stroke-linecap="round"/>
   </g>
 
   <!-- Animated light overlay on the ellipse -->
