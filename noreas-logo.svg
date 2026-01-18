@@ -1,9 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <defs>
+    <!-- Gradient for the traveling light effect -->
+    <linearGradient id="lightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8ec63f;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8ec63f;stop-opacity:0.3" />
+
+      <!-- Animate the gradient offset to create traveling light effect -->
+      <animate attributeName="x1" values="-100%;200%" dur="2s" repeatCount="1" />
+      <animate attributeName="x2" values="0%;300%" dur="2s" repeatCount="1" />
+    </linearGradient>
+  </defs>
+
   <!-- Blue "N" -->
   <text x="0" y="60" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0760ad">N</text>
 
-  <!-- Green "O" (ellipse) -->
+  <!-- Green "O" (ellipse) - Base layer -->
   <ellipse cx="70" cy="40" rx="22" ry="30" fill="none" stroke="#8ec63f" stroke-width="8" transform="rotate(15 70 40)"/>
+
+  <!-- Animated light overlay on the ellipse -->
+  <ellipse cx="70" cy="40" rx="22" ry="30" fill="none" stroke="url(#lightGradient)" stroke-width="10" transform="rotate(15 70 40)" opacity="0.8">
+    <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="1" />
+  </ellipse>
 
   <!-- Blue "REAS" -->
   <text x="95" y="60" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0760ad">REAS</text>
