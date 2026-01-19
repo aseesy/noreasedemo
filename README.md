@@ -63,6 +63,7 @@ open index.html
 ### Key Documentation
 
 - **[Design Guidelines](./design-guidelines.md)** - Design system, spacing, components
+- **[Repository Structure](./docs/STRUCTURE.md)** - File organization and maintenance guide
 - **[CMS Setup](./NETLIFY-CMS-SETUP.md)** - Content management instructions
 - **[Project Reviews](./docs/reviews/)** - Performance audits and technical reviews
 - **[Planning Docs](./docs/planning/)** - Original project planning documents
