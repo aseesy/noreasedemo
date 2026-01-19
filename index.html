@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,8 +65,8 @@
             line-height: 1.15;
             margin-bottom: 24px;
         }
-        /* Prevent AOS flash - elements start invisible */
-        [data-aos] {
+        /* Prevent AOS flash - elements start invisible (only if JS is enabled) */
+        .js [data-aos] {
             opacity: 0;
         }
         /* Reserve space for key sections to prevent layout shift */
@@ -99,6 +99,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
@@ -121,6 +123,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-background">
@@ -815,6 +818,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -876,5 +880,18 @@
     </button>
 
     <script src="script.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      // Redirect to admin if user is coming from invite email
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>

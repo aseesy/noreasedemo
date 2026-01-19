@@ -635,6 +635,10 @@ if (serviceFeatured) {
 // Initialize All Features
 // ===========================
 
+// Add JS class immediately to enable animations
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('NOREAS website initialized successfully');
 

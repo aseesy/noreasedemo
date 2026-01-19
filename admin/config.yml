@@ -1,0 +1,92 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "Images"
+public_folder: "/Images"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["environmental", "natural", "engineering", "construction"]}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Impact Metric 1 Value", name: "impact1_value", widget: "string"}
+      - {label: "Impact Metric 1 Label", name: "impact1_label", widget: "string"}
+      - {label: "Impact Metric 2 Value", name: "impact2_value", widget: "string"}
+      - {label: "Impact Metric 2 Label", name: "impact2_label", widget: "string"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "content/home.md"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "text"}
+          - {label: "Years of Excellence", name: "stat_years", widget: "string", default: "18+"}
+          - {label: "Projects Completed", name: "stat_projects", widget: "string", default: "500+"}
+          - {label: "Expert Professionals", name: "stat_professionals", widget: "string", default: "30+"}
+
+      - label: "About/Company"
+        name: "company"
+        file: "content/company.md"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string"}
+          - {label: "Lead Text", name: "lead_text", widget: "text"}
+          - {label: "Body Text", name: "body", widget: "markdown"}
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Type", name: "type", widget: "select", options: ["featured", "compact"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Stat Number", name: "stat_number", widget: "string"}
+      - {label: "Stat Label", name: "stat_label", widget: "string"}
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        required: false
+        field: {label: "Feature", name: "feature", widget: "string"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+
+  - name: "clients"
+    label: "Clients"
+    folder: "content/clients"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Client Name", name: "name", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["Federal Government", "State & Local Government", "Utilities & Energy", "Engineering & Environmental Firms"]}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+
+  - name: "careers"
+    label: "Careers"
+    folder: "content/careers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Job Title", name: "title", widget: "string"}
+      - {label: "Department", name: "department", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Job Type", name: "job_type", widget: "select", options: ["Full-time", "Part-time", "Contract"]}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Requirements", name: "requirements", widget: "markdown"}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+      - {label: "Order", name: "order", widget: "number", default: 0}

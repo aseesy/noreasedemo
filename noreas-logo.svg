@@ -15,37 +15,30 @@
   <!-- Blue "N" -->
   <text x="0" y="60" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0760ad">N</text>
 
-  <!-- Green "O" with smoothly varying stroke widths - 8 segments for smooth transitions -->
+  <!-- Green "O" with varying thickness - clean solid shape -->
   <g transform="rotate(15 70 40)">
-    <!-- Segment 1: Starting thin -->
-    <path d="M 48,40 A 22,30 0 0,1 59,15.4" fill="none" stroke="#8ec63f" stroke-width="5" stroke-linecap="round"/>
-
-    <!-- Segment 2: Getting thicker -->
-    <path d="M 59,15.4 A 22,30 0 0,1 70,10" fill="none" stroke="#8ec63f" stroke-width="7" stroke-linecap="round"/>
-
-    <!-- Segment 3: Thickening more -->
-    <path d="M 70,10 A 22,30 0 0,1 81,15.4" fill="none" stroke="#8ec63f" stroke-width="9" stroke-linecap="round"/>
-
-    <!-- Segment 4: Thickest -->
-    <path d="M 81,15.4 A 22,30 0 0,1 92,40" fill="none" stroke="#8ec63f" stroke-width="11" stroke-linecap="round"/>
-
-    <!-- Segment 5: Starting to thin -->
-    <path d="M 92,40 A 22,30 0 0,1 81,64.6" fill="none" stroke="#8ec63f" stroke-width="9" stroke-linecap="round"/>
-
-    <!-- Segment 6: Thinner -->
-    <path d="M 81,64.6 A 22,30 0 0,1 70,70" fill="none" stroke="#8ec63f" stroke-width="7" stroke-linecap="round"/>
-
-    <!-- Segment 7: Getting thin -->
-    <path d="M 70,70 A 22,30 0 0,1 59,64.6" fill="none" stroke="#8ec63f" stroke-width="5" stroke-linecap="round"/>
-
-    <!-- Segment 8: Thinnest -->
-    <path d="M 59,64.6 A 22,30 0 0,1 48,40" fill="none" stroke="#8ec63f" stroke-width="4" stroke-linecap="round"/>
+    <path d="
+      M 47,40
+      A 23,33 0 0,1 70,7
+      A 23,33 0 0,1 93,40
+      A 23,33 0 0,1 70,73
+      A 23,33 0 0,1 47,40
+      Z
+      M 53,40
+      A 17,23 0 0,0 70,63
+      A 17,23 0 0,0 87,40
+      A 17,23 0 0,0 70,17
+      A 17,23 0 0,0 53,40
+      Z
+    " fill="#8ec63f" fill-rule="evenodd"/>
   </g>
 
-  <!-- Animated light overlay on the ellipse -->
-  <ellipse cx="70" cy="40" rx="22" ry="30" fill="none" stroke="url(#lightGradient)" stroke-width="12" transform="rotate(15 70 40)" opacity="0.8">
-    <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="1" />
-  </ellipse>
+  <!-- Animated light overlay -->
+  <g transform="rotate(15 70 40)">
+    <ellipse cx="70" cy="40" rx="21.5" ry="28" fill="none" stroke="url(#lightGradient)" stroke-width="10" opacity="0.8">
+      <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="1" />
+    </ellipse>
+  </g>
 
   <!-- Blue "REAS" -->
   <text x="95" y="60" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0760ad">REAS</text>
