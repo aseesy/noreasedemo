@@ -411,22 +411,36 @@ Professional, stable, not trendy. Federal agencies and Fortune 500 companies are
 ## File Organization
 
 ```
-/Norease/
-├── index.html              # Main HTML structure
-├── styles.css              # All styles (currently single file)
-├── script.js               # JavaScript interactions
+/
+├── index.html              # Main site
+├── styles.css              # All styles
+├── script.js               # Interactions
+├── careers.html            # Careers page
+├── careers.css             # Careers styles
+├── careers.js              # Careers interactions
 ├── design-guidelines.md    # This file
-├── spacing-test.html       # Visual spacing verification tool
+├── NETLIFY-CMS-SETUP.md    # CMS instructions
+├── README.md               # Project overview
 ├── noreas-logo.svg         # Brand logo
 ├── outher-1080p.mp4        # Hero video (desktop)
 ├── outher-720p.mp4         # Hero video (mobile)
-└── Images/                 # (Future: project photos)
+├── admin/                  # Netlify CMS
+│   ├── config.yml
+│   └── index.html
+├── content/                # CMS content (markdown)
+│   ├── projects/
+│   ├── services/
+│   └── clients/
+├── docs/                   # Documentation
+│   ├── planning/           # Original planning docs
+│   └── reviews/            # Performance & technical reviews
+└── Images/                 # Project images
 ```
 
 **Future considerations:**
 - Split CSS into modules: `base.css`, `components.css`, `sections.css`
-- Add `/docs` folder for additional documentation
 - Create `/assets` folder structure for organized media
+- Add component library documentation
 
 ---
 
